@@ -197,6 +197,9 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
         R.append(ring.R)
     L, C, R = np.array(L), np.array(C), np.array(R)
     
+    print('C', C)
+
+    
     M_0 = lambda Omega: (R - 1j * Omega * L + 1j/(Omega * C))/1j/Omega
 
     # Caclulating current in each ring
@@ -280,5 +283,6 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
     Data['Currents'] = CURRENTS
     Data['Polarization'] = P
     Data['Phi_0z'] = list(phi_0z)
+    #print(CURRENTS)
 
     return Data

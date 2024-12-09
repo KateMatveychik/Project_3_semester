@@ -6,6 +6,11 @@ import numpy as np
 
 L = 13.459 * 10 ** -9                   # Self-inductance
 C = 470 * 10 ** -10                     # Capacitance
+#existing_z_values = [0, 1, 2,]
+#start_value = 470 * 10 ** -10
+#step = 10**-7
+
+#C_dict = {z: start_value + step*z for z in existing_z_values}
 R = 0.002                               # Resistance
 omega_0 = 1 / np.sqrt(L * C)            # Resonance frequency
 Omega =  np.linspace(omega_0*0.9, omega_0*1.1, 1000) # Frequency range
@@ -25,7 +30,7 @@ Orientations = 'zyx'                    # Orientations of rings
 
 Params = {
     'L': L,                     # Self-inductance
-    'C': C,                     # Capacitance
+    'C': C,                     # Capacitance   
     'R': R,                     # Resistance
     'W': W,                     # Width of strip
     'Radius': Radius,           # Mean radius of rings

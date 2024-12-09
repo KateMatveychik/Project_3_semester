@@ -28,6 +28,8 @@ def save(filename:str, Params:dict)->None:
     """    
     solver = Solvers[Params['Solver_type']]
     packing = Packings[Params['Packing']]
+
+    print('hahaha', packing)
     
     rings_4d = packing(Params, Fill=True)
     phi_0z_4d = {
