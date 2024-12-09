@@ -13,7 +13,7 @@ C = 470 * 10 ** -10                     # Capacitance
 #C_dict = {z: start_value + step*z for z in existing_z_values}
 R = 0.002                               # Resistance
 omega_0 = 1 / np.sqrt(L * C)            # Resonance frequency
-Omega =  np.linspace(omega_0*0.9, omega_0*1.1, 1000) # Frequency range
+Omega =  np.linspace(omega_0*0.9, omega_0*1.1, 100) # Frequency range
 H_0z = 1                                # Amplitude of magnetic field
 mu_0 = 4 * np.pi * 10 ** -7             # Magnetic constant
 
