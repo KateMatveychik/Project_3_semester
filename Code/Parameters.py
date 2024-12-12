@@ -19,7 +19,7 @@ Dx = Dz
 Radius = 4.935 * 10 ** -3               # Mean radius of rings
 W = 0.7 * 0.15 * Dz * 0                 # Width of strip
 
-Sigma = -0.06                           # Lattice constant
+Sigma = 0                           # Lattice constant
 
 Orientations = 'zyx'                    # Orientations of rings
 
