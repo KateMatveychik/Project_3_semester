@@ -102,7 +102,7 @@ def Rectangle_packing(Params:dict, Fill:bool = False) -> Dict[str, List[Ring]]:
                              j * delta_y + Shift_y  + r0['ny'],
                              k * delta_z + Shift_z  + r0['nz'],
                             orientation,
-                            r, w, L, C- 3.673*j*10**-12, R)
+                            r, w, L, C- 1.837*j*10**-12, R)
                     )
         Numbers[orientation] = len(rings)
         Rings[orientation] = rings
