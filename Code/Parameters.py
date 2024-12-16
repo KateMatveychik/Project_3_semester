@@ -5,7 +5,7 @@ import numpy as np
 # Parameters for system used in modeling
 
 L = 13.5 * 10 ** -9                   # Self-inductance L = 13.459*10**-9
-C = 470 * 10 ** -12                     # Capacitance C = 470*10**-10
+C = 290 * 10 ** -12                     # Capacitance C = 470*10**-10
 R = 0.0465                               # Resistance R=0.002
 omega_0 = 1 / np.sqrt(L * C)            # Resonance frequency
 Omega =  np.linspace(omega_0*0.9, omega_0*1.1, 100) # Frequency range
