@@ -87,6 +87,7 @@ def Rectangle_packing(Params:dict, Fill:bool = False) -> Dict[str, List[Ring]]:
         shift_z = Params['shift_z']
 
         # C - 3.673*j*10**-12,
+        #C-1.46939*j*10**-10
 
         nz, ny, nx = N['nz'], N['ny'], N['nx']
         for k in range(nz):
@@ -102,7 +103,7 @@ def Rectangle_packing(Params:dict, Fill:bool = False) -> Dict[str, List[Ring]]:
                              j * delta_y + Shift_y  + r0['ny'],
                              k * delta_z + Shift_z  + r0['nz'],
                             orientation,
-                            r, w, L, C-1.46939*j*10**-10, R)
+                            r, w, L, C, R)
                     )
         Numbers[orientation] = len(rings)
         Rings[orientation] = rings
