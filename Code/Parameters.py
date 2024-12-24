@@ -8,7 +8,7 @@ L = 13.459 * 10 ** -9                   # Self-inductance L = 13.459*10**-9
 C = 470 * 10 ** -10                     # Capacitance C = 470*10**-10
 R = 0.002                              # Resistance R=0.002
 omega_0 = 1 / np.sqrt(L * C)            # Resonance frequency
-Omega =  np.linspace(omega_0*0.9, omega_0*1.1, 100) # Frequency range
+Omega =  np.linspace(omega_0*0.9, omega_0*1.1, 1000) # Frequency range
 H_0z = 1                                # Amplitude of magnetic field
 mu_0 = 4 * np.pi * 10 ** -7             # Magnetic constant
 
