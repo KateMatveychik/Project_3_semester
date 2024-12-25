@@ -40,7 +40,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
     # Solve system in currents terms and return currents in each ring
     rings = sum([rings_4d[orientation] for orientation in rings_4d], [])
     phi_0z = np.array(sum([phi_0z_4d[orientation] for orientation in phi_0z_4d], []))
-
+    
     Number = len(rings)
 
     # Diagonal part
@@ -56,7 +56,8 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
     P = []
     CURRENTS = []
     # External field
-    Phi_0z = phi_0z/np.max(abs(phi_0z))
+    Phi_0z = phi_0z
+    #Phi_0z = phi_0z/np.max(abs(phi_0z))
     print('Pgi_0z', Phi_0z)
 
     print('Matrix forming')
