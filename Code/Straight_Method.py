@@ -7,6 +7,7 @@ from tqdm import tqdm
 from typing import Union, Callable
 from Ring_Class import Ring
 import numpy.typing as npt
+from numpy import linalg
 
 def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}, find:str = 'Voltage', tol:float = 0) -> dict:
     """Function to solve system of equations using straight method
@@ -84,8 +85,8 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
         for omega in tqdm(Omega):
             M_diag = M_0(omega)
             # Solve equation (1/jw - M/M_diag)I = Phi_0z/M_diag
-            #I = solve(np.eye(Number) - np.diag(1/M_diag)@M, Phi_0z/M_diag) 
-            I = solve(np.diag(M_0(omega)) - M, Phi_0z)
+            I = np.linalg.solve(np.eye(Number) - np.diag(1/M_diag)@M, Phi_0z/M_diag) 
+            #I = solve(np.diag(M_0(omega)) - M, Phi_0z)
             CURRENTS.append(I)
             start = 0
             p = []
