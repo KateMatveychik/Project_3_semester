@@ -207,6 +207,8 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
     CURRENTS = []
     I_old = np.ones(Number, dtype = np.complex128)/M_0(Omega[0])
     Phi_0z = phi_0z
+
+    print('Phi', Phi_0z)
     P = []
 
     for omega in tqdm(Omega):
