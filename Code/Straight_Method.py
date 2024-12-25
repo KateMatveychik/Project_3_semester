@@ -67,7 +67,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
         for omega in tqdm(Omega):
             # Solve equation (diag(Z_0)/jw - M)I = Phi_0z
             I = solve(np.diag(M_0(omega)) - M, Phi_0z)
-            CURRENTS.append(I * np.max(abs(phi_0z))*10**-10)
+            CURRENTS.append(I * np.max(abs(phi_0z)))
             start = 0
             p = []
             for pos in Params['Orientations']:
