@@ -83,7 +83,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
         print('Straight solving (Voltage)')
         # Solve equation 
         for omega in tqdm(Omega):
-            print('omega', omega)
+            #print('omega', omega)
             M_diag = M_0(omega)
             # Solve equation (1/jw - M/M_diag)I = Phi_0z/M_diag
             I = np.linalg.solve(np.eye(Number) - np.diag(1/M_diag)@M, Phi_0z/M_diag) 
@@ -101,7 +101,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
         print('condition number', np.linalg.cond(np.eye(Number) - np.diag(1/M_diag)@M))
         print(np.eye(Number) - np.diag(1/M_diag)@M)
         print('Straight solving (Voltage): Done')
-        print(CURRENTS)
+        #print(CURRENTS)
         
     Data = {}
     Data['Params'] = Params
