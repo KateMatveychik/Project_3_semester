@@ -57,6 +57,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
     CURRENTS = []
     # External field
     Phi_0z = phi_0z/np.max(abs(phi_0z))
+    print('Pgi_0z', Phi_0z)
 
     print('Matrix forming')
     M = Matrix(rings, Data = Inductance)
