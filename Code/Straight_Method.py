@@ -95,6 +95,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
             P.append(p)
         P = np.array(P)*np.max(abs(phi_0z)) * Params['P_0z']
         
+        print('condition number', np.linalg.cond(np.eye(Number) - np.diag(1/M_diag)@M))
         print(np.eye(Number) - np.diag(1/M_diag)@M)
         print('Straight solving (Voltage): Done')
         
