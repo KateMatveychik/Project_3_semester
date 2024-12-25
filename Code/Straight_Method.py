@@ -98,6 +98,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
         print('condition number', np.linalg.cond(np.eye(Number) - np.diag(1/M_diag)@M))
         print(np.eye(Number) - np.diag(1/M_diag)@M)
         print('Straight solving (Voltage): Done')
+        print(CURRENTS)
         
     Data = {}
     Data['Params'] = Params
