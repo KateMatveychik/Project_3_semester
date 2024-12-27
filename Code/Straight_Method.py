@@ -56,8 +56,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
     P = []
     CURRENTS = []
     # External field
-    Phi_0z = phi_0z
-    #Phi_0z = phi_0z/np.max(abs(phi_0z))
+    Phi_0z = phi_0z/np.max(abs(phi_0z))
     print('Pgi_0z', Phi_0z)
 
     print('Matrix forming')
@@ -88,7 +87,8 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
             #print('omega', omega)
             M_diag = M_0(omega)
             # Solve equation (1/jw - M/M_diag)I = Phi_0z/M_diag
-            I = np.linalg.solve(np.eye(Number) - np.diag(1/M_diag)@M, Phi_0z/M_diag) 
+            eye = np.eye((Number), dtype=np.dtype(np.float32))
+            I = np.linalg.solve(eye - np.diag(1/M_diag)@M, Phi_0z/M_diag) 
             #I = solve(np.diag(M_0(omega)) - M, Phi_0z)
             CURRENTS.append(I)
             start = 0
