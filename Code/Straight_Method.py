@@ -88,9 +88,8 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
             #print('omega', omega)
             M_diag = M_0(omega)
             # Solve equation (1/jw - M/M_diag)I = Phi_0z/M_diag
-            eye = np.eye((Number), dtype=np.dtype(np.float32))
-            Diag = np.diag((1/M_diag), dtype = np.dtype(np.complex64))
-            I = np.linalg.solve(eye - Diag@M, Phi_0z/M_diag) #instead of eye used to be np.eye(Number)
+            eye = np.eye((Number), dtype=np.dtype(np.float32)) #skdskjdfksldlskjdfl
+            I = np.linalg.solve(eye - np.diag(1/M_diag)@M, Phi_0z/M_diag) #instead of eye used to be np.eye(Number)
             #I = solve(np.diag(M_0(omega)) - M, Phi_0z)
             CURRENTS.append(I)
             start = 0
