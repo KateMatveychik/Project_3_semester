@@ -56,9 +56,9 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
     P = []
     CURRENTS = []
     # External field
-    #Phi_0z = phi_0z/np.max(abs(phi_0z))
-    Phi_0z = phi_0z
-    print('Pgi_0z', Phi_0z)
+    Phi_0z = phi_0z/np.max(abs(phi_0z))
+    #Phi_0z = phi_0z
+    print('Phi_0z:', Phi_0z)
 
     print('Matrix forming')
     M = Matrix(rings, Data = Inductance)
@@ -90,10 +90,10 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
             M_diag = M_diag.astype('complex64') #этой строчки не было
             # Solve equation (1/jw - M/M_diag)I = Phi_0z/M_diag
             eye = np.eye((Number), dtype=np.dtype(np.float32)) #skdskjdfksldlskjdfl
-            print('condition number', np.linalg.cond(np.eye(Number) - np.diag(1/M_diag)@M))
+            #print('condition number', np.linalg.cond(np.eye(Number) - np.diag(1/M_diag)@M))
             I = np.linalg.solve(eye - np.diag(1/M_diag)@M, Phi_0z/M_diag) #instead of eye used to be np.eye(Number)
             #I = solve(np.diag(M_0(omega)) - M, Phi_0z)
-            CURRENTS.append(I)
+            CURRENTS.append(I * np.max(abs(phi_0z)))
             start = 0
             p = []
             for pos in Params['Orientations']:
@@ -103,11 +103,12 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
             P.append(p)
         P = np.array(P)*np.max(abs(phi_0z)) * Params['P_0z']
         
-        print('condition number', np.linalg.cond(np.eye(Number) - np.diag(1/M_diag)@M))
+        #print('condition number', np.linalg.cond(np.eye(Number) - np.diag(1/M_diag)@M))
         print(np.eye(Number) - np.diag(1/M_diag)@M)
         print('Straight solving (Voltage): Done')
         #print(CURRENTS)
-        
+    print('condition number', np.linalg.cond(np.eye(Number) - np.diag(1/M_diag)@M))
+       
     Data = {}
     Data['Params'] = Params
     Data['Omega'] = Omega
