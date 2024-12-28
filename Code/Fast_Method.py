@@ -284,7 +284,6 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
     print(f'FFT solving: Done, shape = {[(pos, rings_4d[pos].shape) for pos in orientations]}')
     Data = {}
 
-    print('condition number', np.linalg.cond(M))
 
     Data['Params'] = Params
     Data['Omega'] = Omega
