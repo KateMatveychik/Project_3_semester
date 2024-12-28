@@ -261,7 +261,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
             M = LinearOperator(dtype = np.complex128, shape=(Number, Number), matvec=LO)
             I, info = solve(M, Phi_0z, x0 = I_old, rtol = tol, atol = 0)
 
-            print('M', M)
+            
 
         if info != 0:
             print(f'f = {omega/2/np.pi/1e6} MHz did not converge')
@@ -281,6 +281,9 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
 
     print(f'FFT solving: Done, shape = {[(pos, rings_4d[pos].shape) for pos in orientations]}')
     Data = {}
+
+    print('M', M)
+    print('condition number', M)
 
     Data['Params'] = Params
     Data['Omega'] = Omega
