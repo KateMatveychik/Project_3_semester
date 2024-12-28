@@ -237,7 +237,6 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
             M = LinearOperator(dtype = np.complex128, shape=(Number, Number), matvec=LO)
             I, info = solve(M, Phi_0z/M_diag, x0 = I_old, rtol = tol, atol = 0)
 
-            print('condition number', np.linalg.cond(M))
         elif find == 'Currents':
             def LO(I):
                 MI = M_diag * I
