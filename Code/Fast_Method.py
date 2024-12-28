@@ -208,7 +208,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
     I_old = np.ones(Number, dtype = np.complex128)/M_0(Omega[0])
     Phi_0z = phi_0z
 
-    print('Phi', Phi_0z)
+    print('Phi:', Phi_0z)
     P = []
 
     for omega in tqdm(Omega):
@@ -264,7 +264,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
 
             print('condition number', np.linalg.cond(M))
 
-            
+        print('info', info)    
 
         if info != 0:
             print(f'f = {omega/2/np.pi/1e6} MHz did not converge')
