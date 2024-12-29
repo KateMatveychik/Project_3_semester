@@ -50,7 +50,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
         C.append(ring.C)
         R.append(ring.R)
     L, C, R = np.array(L), np.array(C), np.array(R)
-    print('C', C)
+    print('C:', C)
 
     M_0 = lambda Omega: (R - 1j * Omega * L + 1j/(Omega * C))/1j/Omega
     P = []
@@ -58,7 +58,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
     # External field
     Phi_0z = phi_0z/np.max(abs(phi_0z))
     #Phi_0z = phi_0z
-    print('Phi_0z:', Phi_0z)
+    print('Phi_0z: ', Phi_0z)
 
     print('Matrix forming')
     M = Matrix(rings, Data = Inductance)
@@ -90,7 +90,7 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
             M_diag = M_diag.astype('complex64') #этой строчки не было
             # Solve equation (1/jw - M/M_diag)I = Phi_0z/M_diag
             #eye = np.eye((Number), dtype=np.dtype(np.float32)) #skdskjdfksldlskjdfl
-            I = solve(np.eye((Number) - np.diag(1/M_diag)@M, Phi_0z/M_diag)) #instead of eye used to be np.eye(Number)
+            I = solve(np.eye(Number) - np.diag(1/M_diag)@M, Phi_0z/M_diag) #instead of eye used to be np.eye(Number)
             #I = solve(np.diag(M_0(omega)) - M, Phi_0z)
             CURRENTS.append(I * np.max(abs(phi_0z)))
             start = 0
