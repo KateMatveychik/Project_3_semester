@@ -89,9 +89,8 @@ def solvesystem(Params:dict, rings_4d:dict, phi_0z_4d:dict, Inductance:dict = {}
             M_diag = M_0(omega)
             M_diag = M_diag.astype('complex64') #этой строчки не было
             # Solve equation (1/jw - M/M_diag)I = Phi_0z/M_diag
-            eye = np.eye((Number), dtype=np.dtype(np.float32)) #skdskjdfksldlskjdfl
-            print('condition number', np.linalg.cond(np.eye(Number) - np.diag(1/M_diag)@M))
-            I = np.linalg.solve(eye - np.diag(1/M_diag)@M, Phi_0z/M_diag) #instead of eye used to be np.eye(Number)
+            #eye = np.eye((Number), dtype=np.dtype(np.float32)) #skdskjdfksldlskjdfl
+            I = solve(np.eye((Number) - np.diag(1/M_diag)@M, Phi_0z/M_diag)) #instead of eye used to be np.eye(Number)
             #I = solve(np.diag(M_0(omega)) - M, Phi_0z)
             CURRENTS.append(I * np.max(abs(phi_0z)))
             start = 0
